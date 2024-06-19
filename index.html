@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link rel="stylesheet" href="source/styles/mycss.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="source/f iles/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="source/files/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="source/files/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <title>Тора </title>
+  <script>
+    var variable = 10;
+    function getVariable() {
+      return variable;
+    }
+
+    var Lst
+    const myElement = document.getElementById("w3-include");
+    function includeHTML() {
+      var z, i, dy, elmnt, file, xhttp;
+      z = document.getElementsByTagName("*");
+      for (i = 0; i < z.length; i++) {
+        elmnt = z[i];
+        /*search for elements with a certain attribute:*/
+        file = elmnt.getAttribute("w3-include-html");
+        if (file) {
+          xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function () {
+            if (this.readyState == 4) {
+              if (this.status == 200) { elmnt.innerHTML = this.responseText; }
+              if (this.status == 404) { elmnt.innerHTML = "Page not found."; }
+              elmnt.removeAttribute("w3-include-html");
+              includeHTML();
+            }
+          }
+          xhttp.open("GET", file, true);
+          xhttp.send();
+          return;
+        }
+      }
+    }
+    function onmyclick(obj) {
+      let Lst = obj
+      if (Lst) {
+        Lst.className = '';
+        obj.className = 'Clicked';
+        let z = obj.id;
+        Lst = obj;
+        loadDoc1(z);
+        loadDoc(z)
+        return;
+      }
+    }
+    function conclick(obj) {
+      let Lst = obj
+      if (Lst) {
+        Lst.className = '';
+        obj.className = 'Clicked';
+        let z = obj.id;
+        Lst = obj;
+        loadDoc(z)
+        return;
+      }
+    }
+    function loadDoc1(artu) {
+      let z = artu
+      ar4 = "source/fdays/con" + z + ".html"
+      // console.log(ar4)
+      const xhttp = new XMLHttpRequest();
+      xhttp.onload = function () {
+        document.getElementById("w3-include1").innerHTML = this.responseText;
+      }
+      xhttp.open("GET", ar4, true);
+      xhttp.send();
+      return;
+    }
+
+    function loadDoc(artu) {
+      let z = artu
+      let ar3 = 'source/fdays/' + z + ".html"
+      // console.log(z)
+      const xhttp = new XMLHttpRequest();
+      xhttp.onload = function () {
+        document.getElementById("w3-include").innerHTML = this.responseText;
+      }
+      xhttp.open("GET", ar3, true);
+      xhttp.send();
+      return;
+    }
+
+
+    function loadcaret(artu) {
+      var toggler = document.getElementsByClassName("caret");
+      var i;
+
+      for (i = 0; i < toggler.length; i++) {
+        toggler[i].addEventListener("click", function () {
+          this.parentElement.querySelector(".nested").classList.toggle("active");
+          this.classList.toggle("check-box");
+        });
+
+      }
+      return;
+    }
+  </script>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html"><img src="source/files/logo.png" alt="..." style="height: 60px;"></a>
+        ">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li id="tora1" onclick="onmyclick(this)" class="Clicked">
+              <a class="nav-link active" aria-current="page" href="/">Берешит</a>
+            </li>
+            <li id="tora2" onclick="onmyclick(this)" class="nav-item">
+              <a class="nav-link" href="#">Шмот</a>
+            </li>
+            <li id="tora3" onclick="onmyclick(this)" class="nav-item">
+              <a class="nav-link" href="#">Ваикра</a>
+            </li>
+            <li id="tora4" onclick="onmyclick(this)" class="nav-item">
+              <a class="nav-link" href="#">Бемидбар</a>
+            </li>
+            <li id="tora5" onclick="onmyclick(this)" class="nav-item">
+              <a class="nav-link" href="#">Дваримм</a>
+            </li>
+            <li id="ToraSS" onclick="onmyclick(this)" class="nav-item">
+              <a class="nav-link" href="#"> Содержание</a>
+            </li>
+
+            <li class="nav-item">
+
+              <a class="nav-link" href="index.html">
+                <img style="width: 35px; margin-inline: 1em;" src="/source/files/tgс.gif" alt="...">
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section>
+    <div class="container-fluid mt-4">
+      <div class="row">
+        <div class="col-lg-2 col-md-12" id="w3-include1">
+          <div w3-include-html="source/fdays/contora1.html">
+            <script>
+              includeHTML();
+            </script>
+          </div>
+        </div>
+        <div class="col-lg-5 col-md-12" id="w3-include">
+          <div w3-include-html="source/fdays/tora1.html">
+            <script>
+              includeHTML();
+            </script>
+          </div>
+        </div>
+         <div class="col-lg-5 col-md-12" id="w3-include2">
+          <div w3-include-html="source/fdays/tomred.html">
+            <script>
+              includeHTML();
+            </script>
+
+          </div>
+
+        </div>
+      </div>
+  </section>
+
+  <footer class="mt-4">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-1 col-md-12 footer-text text-center">
+          <p style="color: aquamarine;">Контакт наша команда </p>
+        </div>
+        <div class="col-lg-2 col-md-12 footer-text text-center">
+          <h2> Email</h2>
+          <p style="color: aquamarine;">lurexgi@outlook.com</p>
+        </div>
+        <div class="col-lg-4 col-md-12 media-links">
+          <img style="width: 40px; margin-inline: 1em;" src="source/files/tgс.png" alt="...">
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function onmessclick(arg) {
+      const showMessage = document.getElementById('showTheTextMessage');
+      showMessage.innerHTML = 'Welcome to Javascript Program...' + arg;
+      showMessage.style.display = 'block';
+    }
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
+    </script>
+  <!--WZ-REKLAMA-1.0IZ-->
+  <div style="clear:both;width:100%;height:90px;padding:0px;z-index:99;position:relative;">
+    <div style="width:728px;height:90px;margin:0 auto;">
+      <script src="/assetsWZ/static/floatad.js" async defer></script>
+    </div>
+  </div><!--WZ-REKLAMA-1.0IK-->
+</body>
+
+</html>
